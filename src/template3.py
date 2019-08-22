@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+""" basic window input with the window
+located in the center of the screen as in the previous example... """
+
 import tkinter
 
 
@@ -19,21 +22,21 @@ def center(tk):
 root = tkinter.Tk()
 root.resizable(width=False, height=False)
 
-
 name = tkinter.StringVar()
 tkinter.Entry(root, textvariable=name, width=30).grid(row=0, column=1)
-tkinter.Label(root, text = 'Name').grid(row=0, column=0)
+tkinter.Label(root, text='Name').grid(row=0, column=0)
 
 surname = tkinter.StringVar()
 tkinter.Entry(root, textvariable=surname, width=30).grid(row=1, column=1)
-tkinter.Label(root, text = 'Surname').grid(row=1, column=0)
+tkinter.Label(root, text='Surname').grid(row=1, column=0)
 
 cell_phone = tkinter.StringVar()
 tkinter.Entry(root, textvariable=cell_phone, width=30).grid(row=2, column=1)
-tkinter.Label(root, text = 'Cell phone').grid(row=2, column=0)
+tkinter.Label(root, text='Cell phone').grid(row=2, column=0)
+
+contacts = {}
 
 
-contacts={}
 def save():
     nam = name.get()
     sur = surname.get()
@@ -41,11 +44,12 @@ def save():
     contacts[cell] = [nam, sur]
     return contacts
 
-button1 = tkinter.Button(root, text='Save', command = save).grid(row=4,
-                                                            column=0,
-                                                            columnspan=2,
-                                                            sticky = 'ew')
+
+button1 = tkinter.Button(root, text='Save', command=save).grid(row=4,
+                                                               column=0,
+                                                               columnspan=2,
+                                                               sticky='ew')
 button1_lambda = tkinter.Button\
-    (root, text='Save', command = lambda: print(save())).grid(row=4, column=0, columnspan=2, sticky = 'ew')
+    (root, text='Save', command=lambda: print(save())).grid(row=4, column=0, columnspan=2, sticky='ew')
 center(root)
 root.mainloop()
