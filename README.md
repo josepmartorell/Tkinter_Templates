@@ -106,7 +106,7 @@ if __name__ == '__main__':
     app = Application(master=root)
     app.mainloop()
 ```
-ideal as a starting point for a bank Api!
+Ideal as a starting point for a bank Api!
 
 
 
