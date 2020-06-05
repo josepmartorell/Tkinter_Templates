@@ -1,4 +1,12 @@
 import tkinter as tk
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib import style
+import matplotlib.animation as animation
+import matplotlib.pyplot as plt
+import numpy as np
+from tkinter import messagebox
+from math import *
 
 """Tkinter_GUI_Templates, 2020-06-05"""
 
@@ -82,15 +90,40 @@ else:
                 row = row + 1
 
             # create tracker
-            tracks = [' -> Track 1: deactivated at <time>',
-                      ' -> Track 2: deactivated at <time>',
-                      ' -> Track 3: deactivated at <time>',
-                      ' -> Track 4: deactivated at <time>']
+            tracks = [' -> Track 1: deactivated at  <time>',
+                      ' -> Track 2: deactivated at  <time>',
+                      ' -> Track 3: deactivated at  <time>',
+                      ' -> Track 4: deactivated at  <time>']
             row = 4
             for track in tracks:
-                tk.Label(text=track, fg='blue', bg='white').grid(row=row, column=2, sticky='w')
+                tk.Label(text=track, fg='gray', bg='white').grid(row=row, column=2, sticky='w')
                 row = row + 1
 
+            # create triggers meter
+            triggers = ['   * Deactived: Auto. Traker <time>',
+                        '   * Triggered: Journal Feed <time>',
+                        '   * Deactived: Recall Point <time>',
+                        '   * Deactived: Caption Hint <time>']
+            row = 8
+            for trigger in triggers:
+                tk.Label(text=trigger, fg='black', bg='white').grid(row=row, column=2, sticky='w')
+                row = row + 1
+
+            # graphics style
+            style.use('grayscale')
+
+            # create object to insert into the drawing area
+            fig = Figure()
+            axl = fig.add_subplot(111)
+
+            # create drawing area
+            canvas = FigureCanvasTkAgg(fig, master=self.master)
+            canvas.draw()
+            # # position canvas
+            canvas.get_tk_widget().place(x=189, y=130, width=644, height=240)
+
+            # check graphic
+            plt.show()
 
         def output(self):
             print("chévere!")
