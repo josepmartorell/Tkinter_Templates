@@ -3,9 +3,8 @@ import tkinter as tk
 """Tkinter_GUI_Templates, 2020-06-05"""
 
 """********************************************************************************************************"""
-"""****starting with the next grid tkinter template build an awesome interface for my new search engine****"""
+"""****Starting from the tkinter grid template, I created an amazing interface for my new search engine****"""
 """********************************************************************************************************"""
-
 
 # run mode selector
 switch = int(input('\nSWITCH TEMPLATE RUN MODE:\n\t'
@@ -42,7 +41,6 @@ else:
             super().__init__(master)
 
             self.master = master
-            self.pack()
             self.make_widgets()
             master.configure(background='white')
 
@@ -50,64 +48,24 @@ else:
             self.winfo_toplevel().title("Factiva's Search Engine")
 
             # create buttons
-            self.check = tk.Button(self, fg="black", bg="gray")
-            self.hint = tk.Button(self, fg="black", bg="gray")
-            self.target = tk.Button(self, fg="black", bg="gray")
-            self.search = tk.Button(self, fg="black", bg="gray")
-            self.tracker = tk.Button(self, fg="black", bg="gray")
-            self.recall = tk.Button(self, fg="black", bg="gray")
-            self.feed = tk.Button(self, fg="black", bg="gray")
-            self.report = tk.Button(self, fg="black", bg="gray")
-            self.reset = tk.Button(self, fg="black", bg="gray")
-            self.start = tk.Button(self, fg="black", bg="gray")
-            self.display = tk.Button(self, fg="black", bg="gray")
+            buttons = ['CHECK BACK',
+                       'CAPTIONS HINT',
+                       'SELECT TARGET',
+                       'SEARCH ENGINE',
+                       'AUTOMATIC TRACKER',
+                       'RECALL POINT',
+                       'JOURNAL FEED',
+                       'MAKE REPORT',
+                       'RESET ALL',
+                       'START/STOP',
+                       'METRIC DISPLAYER']
 
-            # text and commands settings
-            self.check["text"] = "CHECK BACK"
-            self.check["command"] = self.output
+            row = 0
+            for button in buttons:
+                tk.Button(text=button, command=self.output, fg="black", bg="white", relief=tk.RIDGE, width=20).grid(row=row, column=0)
+                row = row + 1
 
-            self.hint["text"] = "CAPTIONS HINT"
-            self.hint["command"] = self.output
-
-            self.target["text"] = "SELECT TARGET"
-            self.target["command"] = self.output
-
-            self.search["text"] = "SEARCH ENGINE"
-            self.search["command"] = self.output
-
-            self.tracker["text"] = "AUTOMATIC TRACKER"
-            self.tracker["command"] = self.output
-
-            self.recall["text"] = "RECALL POINT"
-            self.recall["command"] = self.output
-
-            self.feed["text"] = "JOURNAL FEED"
-            self.feed["command"] = self.output
-
-            self.report["text"] = "MAKE REPORT"
-            self.report["command"] = self.output
-
-            self.reset["text"] = "RESET ALL"
-            self.reset["command"] = self.master.destroy
-
-            self.start["text"] = "START/STOP"
-            self.start["command"] = self.master.destroy
-
-            self.display["text"] = "METRIC DISPLAYER"
-            self.display["command"] = self.master.destroy
-
-            # widgets packing
-            self.check.pack(side="bottom", ipadx=0, fill="x")
-            self.hint.pack(side="bottom", ipadx=0, fill="x")
-            self.target.pack(side="bottom", ipadx=0, fill="x")
-            self.search.pack(side="bottom", ipadx=0, fill="x")
-            self.tracker.pack(side="bottom", ipadx=0, fill="x")
-            self.recall.pack(side="bottom", ipadx=0, fill="x")
-            self.feed.pack(side="bottom", ipadx=0, fill="x")
-            self.report.pack(side="bottom", ipadx=0, fill="x")
-            self.reset.pack(side="bottom", ipadx=0, fill="x")
-            self.start.pack(side="bottom", ipadx=0, fill="x")
-            self.display.pack(side="bottom", ipadx=0, fill="x")
+            # tk.Entry(bg="gray", relief=tk.SUNKEN, width=10).grid(row=0, column=1)
 
         def output(self):
             print("chévere!")
